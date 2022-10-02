@@ -1,0 +1,12 @@
+name: DonationsListener
+main: me.cable.donationslistener.DonationsListener
+
+api-version: 1.19
+version: '${project.version}'
+
+author: Cable
+
+commands:
+  donationslistener:
+    aliases: [ dl, dlistener ]
+    permission: donationslistener.command.donationslistener

@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------------------------------- #
+#
+#     DonationsListener messages.yml
+#
+# ---------------------------------------------------------------------------------------------------- #
+
+# Create your own placeholders and use them in messages.
+
+placeholders:
+  error: "&c[!]&r"
+  success: "&a[+]&r"
+
+# ---------------------------------------------------------------------------------------------------- #
+
+command:
+  donationslistener:
+    help: # {command}
+      - "/{command} Shows information about the plugin"
+      - "/{command} help Shows this help message"
+      - "/{command} reload Reloads the plugin"
+      - "/{command} trigger user:<user> amount:<amount> currency:<currency> [message] Runs a fake donation"
+    information: # {command} {name} {version}
+      - "Server running {name} v{version}"
+      - "Commands: /{command} help"
+    reload: # {milliseconds}
+      - "{success} Configuration reloaded in {milliseconds} ms."
+    trigger: # {amount} {currency} {message} {user}
+      - "{success} Created a fake donation of {amount} {currency} from {user} with a message of \"{message}\"."
+    unknown-command: # {command}
+      - "{error} Unknown sub-command. Type \"/{command} help\" for a list of commands."

@@ -1,0 +1,16 @@
+# ---------------------------------------------------------------------------------------------------- #
+#
+#     DonationsListener config.yml
+#
+#   > Look at "help.md" for information on authorizing the plugin.
+#
+# ---------------------------------------------------------------------------------------------------- #
+
+# Time in seconds between checking for new donations.
+# It is recommended to not go below 30 seconds.
+check-interval: 30
+
+# -----------------------------------------( Authentication )----------------------------------------- #
+
+# See "help.md" for information about how to retrieve this.
+streamlabs-access-token: ""
