@@ -2,7 +2,7 @@ package me.cable.donationslistener;
 
 import me.cable.donationslistener.action.CreeperAction;
 import me.cable.donationslistener.action.HelloWorldAction;
-import me.cable.donationslistener.action.TestAction;
+import me.cable.donationslistener.action.InfoAction;
 import me.cable.donationslistener.command.MainCommand;
 import me.cable.donationslistener.handler.Messages;
 import me.cable.donationslistener.handler.Settings;
@@ -67,7 +67,7 @@ public final class DonationsListener extends JavaPlugin {
     private void registerActions() {
         new CreeperAction();
         new HelloWorldAction();
-        new TestAction();
+        new InfoAction();
     }
 
     public Settings getSettings() {

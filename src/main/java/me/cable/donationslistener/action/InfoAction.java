@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class TestAction extends Action {
+public class InfoAction extends Action {
 
     @Override
     public boolean shouldRun(@NotNull Donation donation) {

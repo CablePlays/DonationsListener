@@ -26,6 +26,23 @@ public class StreamlabsConnector {
         settings = donationsListener.getSettings();
     }
 
+    private static @NotNull HttpRequest createRequest(@NotNull String accessToken, @Nullable Integer limit, @Nullable Integer after) {
+        StringBuilder urlBuilder = new StringBuilder("https://streamlabs.com/api/v1.0/donations?access_token=" + accessToken);
+
+        if (limit != null) {
+            urlBuilder.append("&limit=").append(limit);
+        }
+        if (after != null) {
+            urlBuilder.append("&after=").append(after);
+        }
+
+        return HttpRequest.newBuilder()
+                .uri(URI.create(urlBuilder.toString()))
+                .header("accept", "application/json")
+                .method("POST", HttpRequest.BodyPublishers.noBody())
+                .build();
+    }
+
     /**
      * Gets all donations created after the previous query.
      * If there is no previous query,
@@ -53,7 +70,7 @@ public class StreamlabsConnector {
 
         if (returnedDonations.data == null) {
             DonationsListener.warn("Could not get new donations: " + returnedDonations.error);
-            DonationsListener.warn("Could not get new donations: " + returnedDonations.message);
+            DonationsListener.warn(returnedDonations.message);
             return null;
         }
 
@@ -79,23 +96,6 @@ public class StreamlabsConnector {
         }
 
         return donations;
-    }
-
-    private @NotNull HttpRequest createRequest(@NotNull String accessToken, @Nullable Integer limit, @Nullable Integer after) {
-        StringBuilder urlBuilder = new StringBuilder("https://streamlabs.com/api/v1.0/donations?access_token=" + accessToken);
-
-        if (limit != null) {
-            urlBuilder.append("&limit=").append(limit);
-        }
-        if (after != null) {
-            urlBuilder.append("&after=").append(after);
-        }
-
-        return HttpRequest.newBuilder()
-                .uri(URI.create(urlBuilder.toString()))
-                .header("accept", "application/json")
-                .method("POST", HttpRequest.BodyPublishers.noBody())
-                .build();
     }
 
     private static class ReturnedDonation {
